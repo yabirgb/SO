@@ -12,7 +12,7 @@
 int contador = 0;
 long int sum = 0;
 
-int search(char dirname[]){
+void search(char dirname[]){
   DIR *dir;
 
   //Open the dir
@@ -35,9 +35,7 @@ int search(char dirname[]){
 
     //Get its info
     if(stat(dent->d_name, &atr) < 0){
-      perror("Error al hacer stat sobre un archivo\n");
-      closedir(dir);
-      exit(-1);
+      printf("%s := Error\n", dent->d_name);
     }
 
     //Check if is a regular file
